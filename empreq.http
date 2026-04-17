@@ -1,0 +1,31 @@
+### get req
+GET http://localhost:3000/employee-api/employee
+
+### creating employee 
+POST http://localhost:3000/employee-api/employee
+Content-Type: application/json
+
+{
+  "name": "Jonny",
+  "email": "john@exa.com",
+  "mobile": 98765410,
+  "designation": "Developer",
+  "companyname": "microsoft"
+}
+
+
+###
+PUT http://localhost:3000/employee-api/employee/69ca27a4fd79e21338f8f4b5
+Content-Type: application/json
+
+{
+  "name": "John Updated",
+  "email": "john.updated@example.com",
+  "mobile": 9999999999,
+  "designation": "Senior Developer",
+  "companyname": "Acme Corp"
+}
+
+
+###
+DELETE http://localhost:3000/employee-api/employee/69ca27a4fd79e21338f8f4b5
