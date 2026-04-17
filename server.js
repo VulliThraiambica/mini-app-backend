@@ -10,7 +10,8 @@ app.set("trust proxy", 1);
 app.use(cors({
   origin: [
     "http://localhost:5173",
-    "https://YOUR-FRONTEND.vercel.app"
+    "https://mini-app-frontend-livid.vercel.app",
+    "https://mini-app-frontend-8lm3hgeom-vullithraiambicas-projects.vercel.app"
   ],
   credentials: true
 }));
