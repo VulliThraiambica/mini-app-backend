@@ -8,11 +8,7 @@ config();
 const app=exp()
 app.set("trust proxy", 1);
 app.use(cors({
-  origin: [
-    "http://localhost:5173",
-    "https://mini-app-frontend-livid.vercel.app",
-    "https://mini-app-frontend-git-main-vullithraiambicas-projects.vercel.app"
-  ],
+  origin: true,
   credentials: true
 }));
 app.use(exp.json())
