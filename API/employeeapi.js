@@ -11,11 +11,27 @@ empapp.get("/employee",async(req,res)=>{
 // create 
 
 empapp.post("/employee", async (req, res) => {
-    const empobj = req.body
-    const newEmp = await employeemodel.create(empobj)
-    res.status(201).json({ message: "employee created", payload: newEmp })
-})
+  try {
+    console.log("BODY:", req.body);
 
+    const empobj = req.body;
+
+    const newEmp = await employeemodel.create(empobj);
+
+    res.status(201).json({
+      message: "employee created",
+      payload: newEmp,
+    });
+
+  } catch (err) {
+    console.log("ERROR:", err);
+
+    res.status(500).json({
+      message: "error creating employee",
+      error: err.message,
+    });
+  }
+});
 //edit employee
 
 empapp.put("/employee/:id", async (req, res) => {
