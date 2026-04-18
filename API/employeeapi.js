@@ -9,11 +9,8 @@ empapp.get("/employee",async(req,res)=>{
 })
 
 // create 
-
 empapp.post("/employee", async (req, res) => {
   try {
-    console.log("BODY:", req.body);
-
     const empobj = req.body;
 
     const newEmp = await employeemodel.create(empobj);
@@ -24,7 +21,11 @@ empapp.post("/employee", async (req, res) => {
     });
 
   } catch (err) {
-    console.log("ERROR:", err);
+    if (err.code === 11000) {
+      return res.status(409).json({
+        message: "Email already exists",
+      });
+    }
 
     res.status(500).json({
       message: "error creating employee",
